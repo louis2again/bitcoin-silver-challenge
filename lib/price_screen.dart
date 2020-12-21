@@ -29,6 +29,7 @@ class _PriceScreenState extends State<PriceScreen> {
         setState(() {
           //TODO 2: Call getData() when the picker/dropdown changes.
           selectedCurrency = value;
+          getData();
         });
       },
     );
@@ -45,10 +46,12 @@ class _PriceScreenState extends State<PriceScreen> {
       itemExtent: 32.0,
       onSelectedItemChanged: (selectedIndex) {
         print(selectedIndex);
-        //TODO 1: Save the selected currency to the property selectedCurrency
-        selectedCurrency = currenciesList[selectedIndex];
-        //TODO 2: Call getData() when the picker/dropdown changes.
-        getData();
+        setState(() {
+          //TODO 1: Save the selected currency to the property selectedCurrency
+          selectedCurrency = currenciesList[selectedIndex];
+          //TODO 2: Call getData() when the picker/dropdown changes.
+          getData();
+        });
       },
       children: pickerItems,
     );

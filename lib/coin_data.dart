@@ -39,7 +39,7 @@ class CoinData {
   //TODO 3: Update getCoinData to take the selectedCurrency as an input.
   Future getCoinData(String selectedCurrency) async {
     //TODO 4: Update the URL to use the selectedCurrency input.
-    String requestURL = '$coinAPIURL/BTC$selectedCurrency?apikey=$apiKey';
+    String requestURL = '$coinAPIURL/BTC/$selectedCurrency?apikey=$apiKey';
     http.Response response = await http.get(requestURL);
     if (response.statusCode == 200) {
       var decodedData = jsonDecode(response.body);
